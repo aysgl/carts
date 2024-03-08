@@ -38,7 +38,7 @@ const Main = () => {
           ) : cars.length < 1 ? (
             <h2>araba bulunamadı</h2>
           ) : (
-            <section>
+            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
               {cars?.map((car, i) => (
                 <Card key={i} car={car} />
               ))}

@@ -3,6 +3,7 @@ export type ButtonType = {
   disabled?: boolean;
   style?: string;
   type?: "button" | "submit";
+  onClick?: () => void;
 };
 
 export type CarType = {

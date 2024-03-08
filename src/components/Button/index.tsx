@@ -1,8 +1,13 @@
-import {ButtonType} from '../../types/Types';
+import { ButtonType } from "../../types/Types";
 
-const Button = ({ disabled, style, title, type } : ButtonType) => {
+const Button = ({ disabled, style, title, type, onClick }: ButtonType) => {
   return (
-    <button disabled={disabled} type={type} className={`${style} bg-emerald-400 rounded-full p-3 px-5 text-xs`}>
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      type={type}
+      className={`${style} bg-emerald-400 rounded-full p-3 px-5 text-xs`}
+    >
       {title}
     </button>
   );
