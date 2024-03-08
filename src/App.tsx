@@ -4,7 +4,7 @@ import Header from "./components/Header"
 
 const App = ():JSX.Element => {
   return (
-    <div className="container max-w-[1200px] px-5 mx-auto">
+    <div className="container max-w-[1200px] md:px-24 px-5 mx-auto">
       <BrowserRouter>
       <Header/>
         <Routes>
