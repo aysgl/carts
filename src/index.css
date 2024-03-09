@@ -3,6 +3,30 @@
 @tailwind utilities;
 
 body {
-  background-color: black;
+  background: #000000; 
+  background: -webkit-linear-gradient(to top, #000000, #232526);
+  background: linear-gradient(to top, #000000, #232526); 
   color: white;
+  background-attachment: fixed;
+}
+
+#imagesContainer {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+img.image {
+  position: absolute;
+  visibility: hidden;
+  max-width: 100%;
+}
+img.image.current {
+  visibility: visible;
+}
+
+::selection {
+  background-color: #ff896546;
 }

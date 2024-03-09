@@ -1,9 +1,17 @@
-import React from 'react'
+import ReactSelect from "react-select";
 
 const CustomFilter = () => {
-  return (
-    <div>CustomFilter</div>
-  )
-}
+  const options = [
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" },
+  ];
 
-export default CustomFilter
+  return (
+    <form className="w-full">
+      <ReactSelect className="text-black" options={options} />
+    </form>
+  );
+};
+
+export default CustomFilter;

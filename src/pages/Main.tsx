@@ -1,31 +1,35 @@
-import { useEffect, useState } from "react";
 import CustomFilter from "../components/CustomFilter";
 import Hero from "../components/Hero";
 import SearchBar from "../components/SearchBar";
-import { fetchCars } from "../utils/fetchCars";
-import { CarType } from "../types/Types";
 import Card from "../components/Card";
+import { CarType } from "../types/Types";
+import { fetchCars } from "../utils/fetchCars";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const Main = () => {
   const [cars, setCars] = useState<CarType[] | null>(null);
   const [isError, setIsError] = useState<boolean>(false);
+  const [params] = useSearchParams();
 
   useEffect(() => {
-    fetchCars()
+    const paramsObj = Object.fromEntries(params.entries());
+    const { make, model } = paramsObj;
+
+    fetchCars({ make, model })
       .then((data) => setCars(data))
       .catch((err) => setIsError(err));
-  }, []);
+  }, [params]);
 
   return (
     <div>
       <Hero />
-      <div id="catalog" className="mt-5">
-        <h1 className="text-3xl">Cars</h1>
-        <div className="flex flex-col lg:flex-row">
+      <div id="catalog" className="my-5">
+        <div className="flex justify-between flex-col lg:flex-row mt-5 gap-3">
           <div className="flex-1">
             <SearchBar />
           </div>
-          <div className="flex-4 flex">
+          <div className="flex-1 flex gap-3">
             <CustomFilter />
             <CustomFilter />
           </div>

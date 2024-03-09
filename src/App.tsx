@@ -5,12 +5,12 @@ import Detail from "./pages/Detail";
 
 const App = (): JSX.Element => {
   return (
-    <div className="container max-w-[1200px] md:px-24 px-5 mx-auto">
+    <div className="container max-w-[1400px] md:px-24 px-5 mx-auto">
       <BrowserRouter>
         <Header />
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/:id" element={<Detail />} />
+          <Route path="/:make/:model/:year" element={<Detail />} />
         </Routes>
       </BrowserRouter>
     </div>

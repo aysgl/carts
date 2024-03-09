@@ -1,9 +1,11 @@
+import { MouseEventHandler } from "react";
+
 export type ButtonType = {
   title: string;
   disabled?: boolean;
   style?: string;
   type?: "button" | "submit";
-  onClick?: () => void;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 };
 
 export type CarType = {
@@ -19,4 +21,15 @@ export type CarType = {
   model: string;
   transmission: "a" | "m";
   year: number;
+};
+
+export type Params = {
+  make: string;
+  model: string;
+  year?: string;
+};
+
+export type OptionType = {
+  value: string;
+  label: string;
 };

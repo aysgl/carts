@@ -6,7 +6,7 @@ const Button = ({ disabled, style, title, type, onClick }: ButtonType) => {
       onClick={onClick}
       disabled={disabled}
       type={type}
-      className={`${style} bg-emerald-400 rounded-full p-3 px-5 text-xs`}
+      className={`${style} bg-black text-white rounded-full p-3 px-5 text-xs`}
     >
       {title}
     </button>
