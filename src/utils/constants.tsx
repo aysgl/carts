@@ -27,7 +27,6 @@ export const makes = [
 ];
 
 export const years = [
-  { label: "farketmez", value: "" },
   { label: "2015", value: "2015" },
   { label: "2016", value: "2016" },
   { label: "2017", value: "2017" },
@@ -41,19 +40,15 @@ export const years = [
 
 export const fuels = [
   {
-    label: "farketmez",
-    value: "",
-  },
-  {
-    label: "Gaz",
+    label: "Gas",
     value: "Gas",
   },
   {
-    label: "Elektrik",
+    label: "Electricity",
     value: "Electricity",
   },
   {
-    label: "Dizel",
+    label: "Diesel",
     value: "Diesel",
   },
 ];

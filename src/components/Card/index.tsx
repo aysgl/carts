@@ -7,10 +7,10 @@ import { Category2, GasStation, Kanban } from "iconsax-react";
 
 const Card = ({ car }: { car: CarType }) => {
   const translate = {
-    fwd: "Önden Çeker",
-    rwd: "Arkadan İtişli",
-    "4wd": "4 çeker",
-    awd: "Arkadan 4 çeker",
+    fwd: "Front-Wheel Drive",
+    rwd: "Rear-Wheel Drive",
+    "4wd": "Four-Wheel Drive",
+    awd: "All-Wheel Drive",
   };
 
   const navigate = useNavigate();
@@ -46,7 +46,7 @@ const Card = ({ car }: { car: CarType }) => {
               color="#FF8A65"
               variant="TwoTone"
             />
-            {car.transmission === "a" ? "Otomatik" : "Manuel"}
+            {car.transmission === "a" ? "Automatic" : "Manual"}
           </div>
           <div>
             <Kanban

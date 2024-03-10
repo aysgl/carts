@@ -34,7 +34,7 @@ const Main = () => {
           <div className="flex-1 flex gap-3">
             <CustomFilter
               param={"fuel_type"}
-              title="Yakıt tipi"
+              title="Fuel Type"
               options={fuels}
             />
             <CustomFilter param={"year"} title="Year" options={years} />
@@ -42,11 +42,11 @@ const Main = () => {
         </div>
         <div>
           {!cars ? (
-            <div>yükleniyor</div>
+            <div className="text-center my-10">loading..</div>
           ) : isError ? (
-            <h2>Hata</h2>
+            <h2 className="text-center my-10">Error</h2>
           ) : cars.length < 1 ? (
-            <h2>araba bulunamadı</h2>
+            <h2 className="text-center my-10">Nothing found</h2>
           ) : (
             <div>
               <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">

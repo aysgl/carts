@@ -24,11 +24,12 @@ const SearchBar = () => {
   return (
     <form onSubmit={handleSubmit} className="flex gap-3">
       <ReactSelect
-        defaultInputValue={searchParams.get("make")!}
+        defaultInputValue={searchParams.get("make") || ""}
         onChange={(e) => e && setMake(e.value)}
         className="text-black w-full"
         options={options}
       />
+
       <div className="relative rounded-md shadow-sm">
         <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
           <span className="text-gray-500 sm:text-sm">
@@ -37,7 +38,7 @@ const SearchBar = () => {
         </div>
         <input
           defaultValue={searchParams.get("model")!}
-          onChange={(e) => setModel(e.target.value)}
+          onChange={(e) => e && setModel(e.target.value)}
           type="text"
           name="price"
           id="price"

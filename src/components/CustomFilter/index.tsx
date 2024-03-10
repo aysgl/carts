@@ -8,8 +8,9 @@ const CustomFilter = ({ title, options, param }: Filter) => {
   const [params, setParams] = useSearchParams();
 
   useEffect(() => {
-    if (selected?.value) params.set(param, selected?.value.toLocaleLowerCase());
-    else {
+    if (selected?.value) {
+      params.set(param, selected?.value.toLocaleLowerCase());
+    } else {
       params.delete(param);
     }
 
@@ -24,7 +25,7 @@ const CustomFilter = ({ title, options, param }: Filter) => {
   return (
     <form className="w-full">
       <ReactSelect
-        defaulValue={defaultValue}
+        defaultValue={defaultValue}
         onChange={(e) => e && setSelected(e)}
         className="text-black"
         placeholder={title}
