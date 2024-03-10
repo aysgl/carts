@@ -6,6 +6,8 @@ import { CarType } from "../types/Types";
 import { fetchCars } from "../utils/fetchCars";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import ShowMore from "../components/ShowMore";
+import { fuels, years } from "../utils/constants";
 
 const Main = () => {
   const [cars, setCars] = useState<CarType[] | null>(null);
@@ -30,8 +32,12 @@ const Main = () => {
             <SearchBar />
           </div>
           <div className="flex-1 flex gap-3">
-            <CustomFilter />
-            <CustomFilter />
+            <CustomFilter
+              param={"fuel_type"}
+              title="Yakıt tipi"
+              options={fuels}
+            />
+            <CustomFilter param={"year"} title="Year" options={years} />
           </div>
         </div>
         <div>
@@ -42,11 +48,16 @@ const Main = () => {
           ) : cars.length < 1 ? (
             <h2>araba bulunamadı</h2>
           ) : (
-            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-              {cars?.map((car, i) => (
-                <Card key={i} car={car} />
-              ))}
-            </section>
+            <div>
+              <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+                {cars &&
+                  cars.length > 0 &&
+                  cars?.map((car, i) => <Card key={i} car={car} />)}
+              </section>
+              <div className="flex justify-center w-full">
+                <ShowMore />
+              </div>
+            </div>
           )}
         </div>
       </div>

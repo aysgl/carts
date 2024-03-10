@@ -3,7 +3,9 @@ import { colors } from "./constants";
 
 export const generateImage = (car: CarType, angle?: string): string => {
   const url = new URL(
-    `https://cdn.imagin.studio/getimage?customer=hrjavascript-mastery&make=${car.make}&modelFamily=${car.model}&zoomType=fullscreen`
+    `https://cdn.imagin.studio/getimage?customer=hrjavascript-mastery&make=${
+      car.make
+    }&modelFamily=${car.model.split("/")[0]}&zoomType=fullscreen`
   );
 
   if (angle) {

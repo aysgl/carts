@@ -26,10 +26,17 @@ export type CarType = {
 export type Params = {
   make: string;
   model: string;
+  limit?: string;
   year?: string;
 };
 
 export type OptionType = {
   value: string;
   label: string;
+};
+
+export type Filter = {
+  title: string;
+  options: OptionType[];
+  param: string;
 };
