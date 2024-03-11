@@ -16,9 +16,9 @@ const Main = () => {
 
   useEffect(() => {
     const paramsObj = Object.fromEntries(params.entries());
-    const { make, model } = paramsObj;
+    const { make, model, limit, year } = paramsObj;
 
-    fetchCars({ make, model })
+    fetchCars({ make, model, limit, year })
       .then((data) => setCars(data))
       .catch((err) => setIsError(err));
   }, [params]);

@@ -30,6 +30,7 @@ const Card = ({ car }: { car: CarType }) => {
       <p className="text-3xl ffont-light">
         ${Math.round(Math.random() * 7000) + 1500}{" "}
       </p>
+      <p>{car.year}</p>
       <div className="relative w-full h-40 my-3">
         <img
           src={generateImage(car)}

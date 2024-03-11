@@ -3,10 +3,10 @@ import Button from "../Button";
 
 const ShowMore = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  let limit = Number(searchParams.get("limit")) || 5;
+  let limit = Number(searchParams.get("limit")) || 10;
 
   const handleLimit = () => {
-    limit += 5;
+    limit += 10;
     searchParams.set("limit", String(limit));
     setSearchParams(searchParams);
   };

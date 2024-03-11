@@ -4,29 +4,30 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 const CustomFilter = ({ title, options, param }: Filter) => {
-  const [selected, setSelected] = useState<OptionType>();
+  const [selected, setSelected] = useState<OptionType | null>(null);
   const [params, setParams] = useSearchParams();
 
   useEffect(() => {
     if (selected?.value) {
-      params.set(param, selected?.value.toLocaleLowerCase());
+      params.set(param, selected.value.toLowerCase());
     } else {
       params.delete(param);
     }
 
     setParams(params);
-  }, [selected]);
-
-  const defaultValue = {
-    label: params.get(param),
-    value: params.get(param),
-  };
+  }, [param, params, selected, setParams]);
 
   return (
     <form className="w-full">
       <ReactSelect
-        defaultValue={defaultValue}
-        onChange={(e) => e && setSelected(e)}
+        onChange={(selectedOption) => {
+          if (selectedOption) {
+            const { label, value } = selectedOption;
+            setSelected({ label: label ?? "", value: value ?? "" });
+          } else {
+            setSelected(null);
+          }
+        }}
         className="text-black"
         placeholder={title}
         options={options}

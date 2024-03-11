@@ -28,11 +28,13 @@ export type Params = {
   model: string;
   limit?: string;
   year?: string;
+  fuel_type?: string;
 };
 
 export type OptionType = {
   value: string;
   label: string;
+  year?: string;
 };
 
 export type Filter = {
